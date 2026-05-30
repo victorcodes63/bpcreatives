@@ -7,13 +7,13 @@ type LogoSize = "header" | "footer";
 
 const sizeStyles: Record<LogoSize, { width: number; height: number; className: string }> = {
   header: {
-    width: 200,
-    height: 59,
+    width: 439,
+    height: 120,
     className: "h-10 w-auto sm:h-12 md:h-14",
   },
   footer: {
-    width: 220,
-    height: 65,
+    width: 439,
+    height: 120,
     className: "h-12 w-auto md:h-16",
   },
 };
@@ -34,15 +34,12 @@ export function Logo({ size = "header", className, priority }: LogoProps) {
       aria-label={`${BRAND.name} home`}
     >
       <Image
-        src="/images/bp-yellow.png"
+        src="/images/bp-creatives-logo-gold.png"
         alt={BRAND.name}
         width={width}
         height={height}
         priority={priority}
-        className={cn(
-          sizeClass,
-          "object-contain object-left mix-blend-screen",
-        )}
+        className={cn(sizeClass, "object-contain object-left")}
       />
     </Link>
   );

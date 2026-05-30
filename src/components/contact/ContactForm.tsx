@@ -31,7 +31,7 @@ export function ContactForm() {
   useEffect(() => {
     if (state.success) {
       formRef.current?.reset();
-      setShowSuccess(true);
+      queueMicrotask(() => setShowSuccess(true));
     }
   }, [state.success]);
 
@@ -52,7 +52,7 @@ export function ContactForm() {
         <h3 className="font-serif text-2xl text-bp-green sm:text-3xl">
           Message received
         </h3>
-        <p className="mt-4 max-w-sm text-sm leading-relaxed text-bp-green/70">
+        <p className="mt-4 max-w-sm text-sm leading-relaxed text-bp-black/70">
           {state.message}
         </p>
         <button
@@ -77,7 +77,7 @@ export function ContactForm() {
         <h2 className="font-serif text-2xl text-bp-green sm:text-3xl">
           Start the conversation
         </h2>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-bp-green/65">
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-bp-black/65">
           Tell us about your brand and what you&apos;re looking to achieve. Every
           great partnership begins with a thoughtful first message.
         </p>
@@ -181,7 +181,7 @@ export function ContactForm() {
       </div>
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs leading-relaxed text-bp-green/50">
+        <p className="text-xs leading-relaxed text-bp-black/50">
           By submitting, you agree to be contacted about your inquiry. We
           respect your privacy and never share your details.
         </p>
@@ -189,7 +189,7 @@ export function ContactForm() {
           type="submit"
           disabled={pending}
           className={cn(
-            "inline-flex shrink-0 items-center justify-center gap-2.5 border border-bp-gold bg-bp-gold px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-bp-green transition-colors hover:bg-bp-gold/90 disabled:cursor-not-allowed disabled:opacity-70",
+            "inline-flex shrink-0 items-center justify-center gap-2.5 border border-bp-gold-dark bg-bp-gold px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-bp-green transition-colors hover:bg-bp-gold/90 disabled:cursor-not-allowed disabled:opacity-70",
           )}
         >
           {pending ? (

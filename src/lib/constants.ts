@@ -118,8 +118,8 @@ export const STORY_BEATS = [
     highlight: "BP Creatives",
     description:
       "Strategy with soul — a Nairobi team obsessed with helping brands connect, influence, and grow across Kenya and East Africa.",
-    image: "/images/story-partnership-v2.jpg",
-    imageAlt: "BP Creatives modern office in Nairobi",
+    image: "/images/about-us-section.png",
+    imageAlt: "BP Creatives lounge with gold logo and green accent wall",
   },
 ] as const;
 

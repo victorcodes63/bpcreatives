@@ -84,8 +84,8 @@ export function Footer() {
   return (
     <footer className="bg-bp-green text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_1.15fr_0.95fr] lg:gap-0">
+          <div className="lg:pr-14">
             <Logo size="footer" className="mb-4" />
             <p className="max-w-xs text-sm leading-relaxed text-white/70">
               {BRAND.slogan}. A PR &amp; creative agency built for impact — we
@@ -93,7 +93,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="border-white/10 lg:border-l lg:px-10">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-bp-gold">
               Quick Links
             </h3>
@@ -111,7 +111,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="border-white/10 lg:border-l lg:px-10">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-bp-gold">
               Services
             </h3>
@@ -129,7 +129,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="border-white/10 lg:border-l lg:pl-10">
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-bp-gold">
               Let&apos;s Connect
             </h3>

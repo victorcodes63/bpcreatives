@@ -21,9 +21,14 @@ export function Hero() {
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-bp-green via-bp-green/78 to-bp-green/35" />
-      <div className="absolute inset-0 bg-gradient-to-t from-bp-green/80 via-transparent to-bp-green/30" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bp-green to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,34,23,0.94)_0%,rgba(8,34,23,0.82)_34%,rgba(8,34,23,0.44)_67%,rgba(8,34,23,0.24)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_36%,rgba(180,134,50,0.18)_0%,rgba(180,134,50,0.08)_24%,transparent_48%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(8,34,23,0.2)_62%,rgba(8,34,23,0.68)_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-bp-green/90 via-bp-green/35 to-transparent" />
+      <div className="gold-orb absolute -left-24 top-24 h-80 w-80 opacity-60 blur-3xl" />
+      <div className="gold-orb absolute bottom-20 right-8 hidden h-96 w-96 opacity-70 blur-3xl lg:block" />
+      <div className="absolute inset-x-0 bottom-0 h-44 bg-[linear-gradient(180deg,transparent_0%,rgba(8,34,23,0.24)_42%,rgba(8,34,23,0.88)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-bp-gold/45 to-transparent" />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-32 pt-40 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_auto]">
@@ -48,7 +53,9 @@ export function Hero() {
               We tell your story.
               <br />
               We build your{" "}
-              <em className="text-bp-gold not-italic">legacy.</em>
+              <em className="gold-lettering text-bp-gold not-italic">
+                legacy.
+              </em>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -80,7 +87,7 @@ export function Hero() {
               {heroProof.map((item) => (
                 <span
                   key={item}
-                  className="border border-white/15 bg-white/8 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white/75 backdrop-blur"
+                  className="border border-bp-gold/20 bg-bp-green/35 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.18em] text-white/78 shadow-[0_0_24px_rgba(180,134,50,0.08)] backdrop-blur"
                 >
                   {item}
                 </span>
@@ -96,7 +103,7 @@ export function Hero() {
           >
             <span className="h-28 w-px bg-bp-gold/40" />
             <div>
-              <p className="font-serif text-3xl italic leading-tight text-bp-gold">
+              <p className="gold-lettering-soft font-serif text-3xl italic leading-tight text-bp-gold">
                 Strategy
                 <br />
                 with soul.

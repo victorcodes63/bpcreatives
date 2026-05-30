@@ -36,7 +36,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
               <h2 className="font-serif text-2xl text-bp-green sm:text-3xl">
                 Overview
               </h2>
-              <div className="mt-6 space-y-5 text-base leading-relaxed text-bp-green/80">
+              <div className="mt-6 space-y-5 text-base leading-relaxed text-bp-black/80">
                 {service.overview.map((paragraph) => (
                   <p key={paragraph.slice(0, 40)}>{paragraph}</p>
                 ))}
@@ -83,7 +83,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
                 <h3 className="mt-2 text-sm font-bold uppercase tracking-wide text-bp-green">
                   {phase.step}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-bp-green/70">
+                <p className="mt-3 text-sm leading-relaxed text-bp-black/70">
                   {phase.description}
                 </p>
               </li>

@@ -43,7 +43,7 @@ export function BrandValues({ variant = "light" }: BrandValuesProps) {
               {value.title}
             </h3>
             <p
-              className={`mt-3 text-sm leading-relaxed ${isDark ? "text-white/70" : "text-bp-green/70"}`}
+              className={`mt-3 text-sm leading-relaxed ${isDark ? "text-white/70" : "text-bp-black/70"}`}
             >
               {value.description}
             </p>

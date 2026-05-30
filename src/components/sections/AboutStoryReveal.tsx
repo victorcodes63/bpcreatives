@@ -23,11 +23,13 @@ function StoryHeading({
     <h3
       className={cn(
         "font-serif text-4xl leading-[1.04] tracking-[-0.03em] transition-colors duration-500 sm:text-5xl lg:text-6xl",
-        isActive ? "text-white" : "text-white/30",
+        isActive ? "text-bp-green" : "text-bp-black/20",
       )}
     >
       {before}
-      <span className={isActive ? "text-bp-gold" : "text-white/35"}>
+      <span
+        className={isActive ? "gold-lettering-soft text-bp-gold" : "text-bp-black/25"}
+      >
         {beat.highlight}
       </span>
       {after}
@@ -40,7 +42,8 @@ export function AboutStoryReveal() {
   const beatRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const observers = beatRefs.current.map((el, index) => {
+    const observedBeats = beatRefs.current;
+    const observers = observedBeats.map((el, index) => {
       if (!el) return null;
 
       const observer = new IntersectionObserver(
@@ -58,9 +61,9 @@ export function AboutStoryReveal() {
 
     return () => {
       observers.forEach((observer, index) => {
-        observer?.disconnect();
-        const el = beatRefs.current[index];
+        const el = observedBeats[index];
         if (el) observer?.unobserve(el);
+        observer?.disconnect();
       });
     };
   }, []);
@@ -69,21 +72,21 @@ export function AboutStoryReveal() {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute -left-24 top-20 hidden h-72 w-72 rounded-full bg-bp-gold/10 blur-3xl lg:block" />
-      <div className="pointer-events-none absolute -right-20 bottom-20 hidden h-80 w-80 rounded-full bg-white/5 blur-3xl lg:block" />
+      <div className="gold-orb pointer-events-none absolute -left-24 top-20 hidden h-72 w-72 blur-3xl lg:block" />
+      <div className="gold-orb pointer-events-none absolute -right-20 bottom-20 hidden h-80 w-80 blur-3xl lg:block" />
 
       <div className="mb-10 max-w-3xl lg:mb-12">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-bp-gold">
           About Us
         </p>
-        <h2 className="mt-4 font-serif text-4xl leading-tight tracking-[-0.03em] text-white sm:text-5xl lg:text-[3.5rem]">
+        <h2 className="mt-4 font-serif text-4xl leading-tight tracking-[-0.03em] text-bp-green sm:text-5xl lg:text-[3.5rem]">
           Three truths guide how we build brands.
         </h2>
       </div>
 
       <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
         <div className="relative lg:sticky lg:top-24 lg:self-start">
-          <div className="relative overflow-hidden border border-white/10 bg-bp-green-light p-3 shadow-2xl shadow-black/20">
+          <div className="gold-glow relative overflow-hidden border border-bp-gold/20 bg-white p-3">
             <div className="relative aspect-[6/7] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -147,7 +150,7 @@ export function AboutStoryReveal() {
                   "group border px-4 py-3 text-left transition-all duration-500",
                   index === activeIndex
                     ? "border-bp-gold bg-bp-gold text-bp-green"
-                    : "border-white/10 bg-white/[0.03] text-white/55 hover:border-bp-gold/40 hover:text-white",
+                    : "border-bp-green/10 bg-white/70 text-bp-black/55 hover:border-bp-gold/40 hover:text-bp-green",
                 )}
                 aria-label={`Go to: ${beat.label}`}
               >
@@ -163,7 +166,7 @@ export function AboutStoryReveal() {
         </div>
 
         <div className="relative flex flex-col">
-          <div className="absolute left-0 top-0 hidden h-full w-px bg-white/10 lg:block" />
+          <div className="absolute left-0 top-0 hidden h-full w-px bg-bp-green/10 lg:block" />
 
           <div className="space-y-0 lg:pl-10">
             {STORY_BEATS.map((beat, index) => (
@@ -172,7 +175,7 @@ export function AboutStoryReveal() {
                 ref={(el) => {
                   beatRefs.current[index] = el;
                 }}
-                className="relative flex min-h-[44vh] flex-col justify-center border-b border-white/10 py-10 last:border-b-0 lg:min-h-[52vh] lg:py-12"
+                className="relative flex min-h-[44vh] flex-col justify-center border-b border-bp-green/10 py-10 last:border-b-0 lg:min-h-[52vh] lg:py-12"
               >
                 <motion.div
                   initial={false}
@@ -187,15 +190,15 @@ export function AboutStoryReveal() {
                     className={cn(
                       "absolute -left-[3.05rem] top-3 hidden h-4 w-4 rounded-full border transition-colors duration-500 lg:block",
                       index === activeIndex
-                        ? "border-bp-gold bg-bp-gold shadow-[0_0_0_8px_rgba(255,193,5,0.12)]"
-                        : "border-white/20 bg-bp-green",
+                        ? "border-bp-gold bg-bp-gold shadow-[0_0_0_8px_rgba(180,134,50,0.12)]"
+                        : "border-bp-green/20 bg-bp-cream",
                     )}
                   />
                   <div className="mb-5 flex items-center gap-4">
                     <span
                       className={cn(
                         "text-[11px] font-semibold uppercase tracking-[0.28em] transition-colors duration-500",
-                        index === activeIndex ? "text-bp-gold" : "text-white/35",
+                        index === activeIndex ? "text-bp-gold" : "text-bp-black/35",
                       )}
                     >
                       0{index + 1} · {beat.kicker}
@@ -203,7 +206,7 @@ export function AboutStoryReveal() {
                     <span
                       className={cn(
                         "h-px flex-1 transition-colors duration-500",
-                        index === activeIndex ? "bg-bp-gold/50" : "bg-white/10",
+                        index === activeIndex ? "bg-bp-gold/50" : "bg-bp-green/10",
                       )}
                     />
                   </div>
@@ -216,7 +219,7 @@ export function AboutStoryReveal() {
                       y: index === activeIndex ? 0 : 10,
                     }}
                     transition={{ duration: 0.45 }}
-                    className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg"
+                    className="mt-6 max-w-xl text-base leading-relaxed text-bp-black/70 sm:text-lg"
                   >
                     {beat.description}
                   </motion.p>

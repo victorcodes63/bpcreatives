@@ -41,7 +41,7 @@ export function ContactSidebar() {
         <h2 className="mt-3 font-serif text-2xl text-bp-green sm:text-3xl">
           Prefer a direct line?
         </h2>
-        <p className="mt-4 text-sm leading-relaxed text-bp-green/65">
+        <p className="mt-4 text-sm leading-relaxed text-bp-black/65">
           Reach out by email or phone — we respond to every inquiry within{" "}
           <span className="font-medium text-bp-green">{CONTACT.responseTime}</span>
           .
@@ -107,11 +107,11 @@ export function ContactSidebar() {
       </div>
 
       <blockquote className="border-l-2 border-bp-gold pl-6">
-        <p className="font-serif text-lg italic leading-relaxed text-bp-green/80">
+        <p className="font-serif text-lg italic leading-relaxed text-bp-black/80">
           &ldquo;Every brand has a story worth telling. We&apos;re here to help
           you tell yours.&rdquo;
         </p>
-        <footer className="mt-3 text-xs uppercase tracking-wider text-bp-green/50">
+        <footer className="mt-3 text-xs uppercase tracking-wider text-bp-black/50">
           — {BRAND.name}
         </footer>
       </blockquote>

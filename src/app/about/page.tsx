@@ -39,7 +39,10 @@ export default function AboutPage() {
           <FadeIn direction="up" delay={0.2}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75">
               We are storytellers. We are strategists. We are{" "}
-              <span className="text-bp-gold">{BRAND.name}</span> — a full-service
+              <span className="gold-lettering-soft text-bp-gold">
+                {BRAND.name}
+              </span>{" "}
+              — a full-service
               PR and communications agency passionate about helping brands find
               their voice, connect with their audience, and achieve lasting
               impact.
@@ -62,7 +65,7 @@ export default function AboutPage() {
               </h2>
             </FadeIn>
             <FadeIn direction="up" delay={0.2}>
-              <p className="mt-4 text-base leading-relaxed text-bp-green/70">
+              <p className="mt-4 text-base leading-relaxed text-bp-black/70">
                 These principles guide every strategy we craft, every story we
                 tell, and every partnership we build.
               </p>
@@ -100,7 +103,9 @@ export default function AboutPage() {
               <FadeIn direction="up" delay={0.2}>
                 <h2 className="mt-3 font-serif text-3xl leading-snug sm:text-4xl">
                   Based in Nairobi, built for{" "}
-                  <span className="text-bp-gold">impact.</span>
+                  <span className="gold-lettering-soft text-bp-gold">
+                    impact.
+                  </span>
                 </h2>
               </FadeIn>
               <FadeIn direction="up" delay={0.3}>
@@ -131,7 +136,7 @@ export default function AboutPage() {
                         className="mx-auto mb-2 text-bp-gold"
                         strokeWidth={1.5}
                       />
-                      <p className="font-serif text-2xl font-bold text-bp-gold sm:text-3xl">
+                      <p className="gold-lettering-soft font-serif text-2xl font-bold text-bp-gold sm:text-3xl">
                         {stat.value}
                       </p>
                       <p className="mt-1 text-[10px] uppercase tracking-wider text-white/60">
@@ -154,7 +159,7 @@ export default function AboutPage() {
             </h2>
           </FadeIn>
           <FadeIn direction="up" delay={0.1}>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-bp-green/70">
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-bp-black/70">
               Let&apos;s start a conversation about your brand, your goals, and
               how {BRAND.slogan.toLowerCase()} can drive your next chapter.
             </p>

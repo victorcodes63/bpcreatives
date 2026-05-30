@@ -36,7 +36,8 @@ export default function ContactPage() {
               </p>
               <h1 className="mt-3 max-w-3xl font-serif text-3xl leading-snug sm:text-4xl lg:text-5xl">
                 Let&apos;s build something{" "}
-                <span className="text-bp-gold">great</span> together
+                <span className="gold-lettering-soft text-bp-gold">great</span>{" "}
+                together
               </h1>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75">
                 Whether you&apos;re launching a brand, scaling your presence, or
@@ -47,7 +48,7 @@ export default function ContactPage() {
             </div>
 
             <div className="hidden lg:block">
-              <p className="max-w-[14rem] text-right font-serif text-xl italic leading-snug text-bp-gold">
+              <p className="gold-lettering-soft max-w-[14rem] text-right font-serif text-xl italic leading-snug text-bp-gold">
                 Your story.
                 <br />
                 Our obsession.
@@ -90,7 +91,7 @@ export default function ContactPage() {
             <h2 className="mt-3 font-serif text-3xl text-bp-green sm:text-4xl">
               Find us at The Piano
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-bp-green/65">
+            <p className="mt-4 text-sm leading-relaxed text-bp-black/65">
               Our team is based at {BRAND.location}. Use the map below to plan
               your visit or share the location with your team.
             </p>
@@ -118,7 +119,7 @@ export default function ContactPage() {
             <h2 className="mt-3 font-serif text-3xl text-bp-green sm:text-4xl">
               From first message to partnership
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-bp-green/65">
+            <p className="mt-4 text-sm leading-relaxed text-bp-black/65">
               A clear, collaborative process — so you know exactly what to
               expect when you reach out.
             </p>
@@ -142,7 +143,7 @@ export default function ContactPage() {
                 <h3 className="mt-4 font-serif text-xl text-bp-green">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-bp-green/65">
+                <p className="mt-3 text-sm leading-relaxed text-bp-black/65">
                   {step.description}
                 </p>
               </div>
@@ -158,7 +159,7 @@ export default function ContactPage() {
           <h2 className="font-serif text-2xl text-bp-green sm:text-3xl">
             Rather talk now?
           </h2>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-bp-green/65">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-bp-black/65">
             Skip the form and call us directly — we&apos;re available during
             office hours and happy to chat.
           </p>

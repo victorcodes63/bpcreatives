@@ -43,7 +43,7 @@ export default function ServicesPage() {
               />
             ))}
           </div>
-          <p className="mt-16 text-center text-sm text-bp-green/70">
+          <p className="mt-16 text-center text-sm text-bp-black/70">
             Looking for something specific?{" "}
             <Link
               href="/contact"
