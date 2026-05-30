@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Briefcase, Handshake, Heart, Zap } from "lucide-react";
+import { Award, Briefcase, Handshake, Heart, Palette } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { BRAND_VALUES } from "@/lib/constants";
 import { StaggerContainer, StaggerItem } from "@/components/animations/Stagger";
@@ -9,7 +9,7 @@ const valueIcons: Record<(typeof BRAND_VALUES)[number]["icon"], LucideIcon> = {
   heart: Heart,
   award: Award,
   handshake: Handshake,
-  zap: Zap,
+  palette: Palette,
   briefcase: Briefcase,
 };
 

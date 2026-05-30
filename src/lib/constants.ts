@@ -80,10 +80,10 @@ export const BRAND_VALUES = [
     icon: "handshake" as const,
   },
   {
-    title: "Activity",
+    title: "Artistry",
     description:
-      "We stay proactive in the market — moving ideas forward, seizing opportunities, and keeping momentum behind your brand.",
-    icon: "zap" as const,
+      "We bring creative vision and craft to every brief — turning strategy into work that feels intentional, distinctive, and beautifully made.",
+    icon: "palette" as const,
   },
   {
     title: "Professionalism",
