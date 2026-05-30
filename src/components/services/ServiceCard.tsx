@@ -26,7 +26,7 @@ export function ServiceCard({
       <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-bp-gold/25 bg-bp-green text-bp-gold transition-all duration-300 group-hover:border-bp-gold group-hover:bg-bp-gold group-hover:text-bp-green">
         <ServiceIconComponent icon={icon} size={24} />
       </div>
-      <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-bp-green transition-colors group-hover:text-bp-gold">
+      <h3 className="font-[family-name:var(--font-georgia)] text-base font-bold leading-snug tracking-[-0.01em] text-bp-green transition-colors group-hover:text-bp-gold">
         {title}
       </h3>
       <p className="mt-3 text-sm leading-relaxed text-bp-green/70">

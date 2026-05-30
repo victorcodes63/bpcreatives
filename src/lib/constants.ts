@@ -5,13 +5,15 @@ export const BRAND = {
   email: "hello@bpcreatives.co.ke",
   phone: "0112 836 147",
   phoneTel: "+254112836147",
-  location: "Nairobi, Kenya",
+  location: "The Piano, Nairobi, Kenya",
 } as const;
 
 export const CONTACT = {
   responseTime: "Within 48 hours",
   officeHours: "Monday – Friday, 9:00 AM – 6:00 PM EAT",
   timezone: "East Africa Time (EAT)",
+  mapEmbedUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7977.71057619948!2d36.79653003350565!3d-1.2588970623561617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f176f89893739%3A0x6677026bfae79ba7!2sThe%20Piano!5e0!3m2!1sen!2ske!4v1780142443214!5m2!1sen!2ske",
 } as const;
 
 export const CONTACT_FAQ = [

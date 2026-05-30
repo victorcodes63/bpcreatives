@@ -81,6 +81,34 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="border-t border-bp-green/10 bg-bp-cream">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-bp-gold">
+              Visit Us
+            </p>
+            <h2 className="mt-3 font-serif text-3xl text-bp-green sm:text-4xl">
+              Find us at The Piano
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-bp-green/65">
+              Our team is based at {BRAND.location}. Use the map below to plan
+              your visit or share the location with your team.
+            </p>
+          </div>
+
+          <div className="mt-12 overflow-hidden border border-bp-green/10 bg-white shadow-2xl shadow-bp-green/10">
+            <iframe
+              src={CONTACT.mapEmbedUrl}
+              title={`${BRAND.name} location at The Piano`}
+              className="h-[28rem] w-full"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="border-t border-bp-green/10 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-2xl text-center">
