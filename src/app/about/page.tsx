@@ -1,25 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
-import { Users, Megaphone, Globe, Award } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 import { BrandValues } from "@/components/sections/BrandValues";
+import { PartnershipApproach } from "@/components/sections/PartnershipApproach";
 import { Button } from "@/components/ui/Button";
-import { BRAND, STATS } from "@/lib/constants";
+import { BRAND } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/metadata";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Parallax } from "@/components/animations/Parallax";
-import { StaggerContainer, StaggerItem } from "@/components/animations/Stagger";
 
-export const metadata: Metadata = {
-  title: `About Us | ${BRAND.name}`,
-  description: `${BRAND.slogan}. ${BRAND.name} is a full-service PR and communications agency in Nairobi, Kenya — built on authenticity, excellence, and strategic partnership.`,
-};
-
-const statIcons: Record<(typeof STATS)[number]["icon"], LucideIcon> = {
-  users: Users,
-  megaphone: Megaphone,
-  globe: Globe,
-  award: Award,
-};
+export const metadata = createPageMetadata({
+  title: "About Us",
+  description: `${BRAND.slogan}. ${BRAND.name} is a full service marketing, PR and communication agency in Nairobi, Kenya, built on authenticity, excellence, and strategic partnership.`,
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
@@ -39,13 +31,12 @@ export default function AboutPage() {
           <FadeIn direction="up" delay={0.2}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75">
               We are storytellers. We are strategists. We are{" "}
-              <span className="gold-lettering-soft text-bp-gold">
+              <span className="text-bp-gold">
                 {BRAND.name}
-              </span>{" "}
-              — a full-service
-              PR and communications agency passionate about helping brands find
-              their voice, connect with their audience, and achieve lasting
-              impact.
+              </span>
+              , a full service marketing, PR and communication agency devoted to helping
+              brands find their voice, connect with their audience, and achieve
+              lasting impact.
             </p>
           </FadeIn>
         </div>
@@ -103,51 +94,36 @@ export default function AboutPage() {
               <FadeIn direction="up" delay={0.2}>
                 <h2 className="mt-3 font-serif text-3xl leading-snug sm:text-4xl">
                   Based in Nairobi, built for{" "}
-                  <span className="gold-lettering-soft text-bp-gold">
+                  <span className="text-bp-gold">
                     impact.
                   </span>
                 </h2>
               </FadeIn>
               <FadeIn direction="up" delay={0.3}>
                 <p className="mt-6 text-base leading-relaxed text-white/75">
-                  From startups to established enterprises, we craft strategies
-                  that tell your story authentically. We don&apos;t just manage
-                  campaigns — we build reputations that stand the test of time.
+                  From emerging brands to established enterprises, we craft
+                  strategies that tell your story authentically. We do not
+                  simply manage campaigns. We build reputations that endure.
                 </p>
               </FadeIn>
               <FadeIn direction="up" delay={0.4}>
                 <p className="mt-4 text-base leading-relaxed text-white/75">
-                  Your brand. Our creative obsession. That is the partnership we
-                  bring to every client — combining strategic thinking with the
-                  soul and craft that makes your message resonate.
+                  Your brand. Our creative obsession. That is the spirit we
+                  bring to every partnership, combining strategic thinking with
+                  the soul and craft that makes your message resonate.
                 </p>
               </FadeIn>
-
-              <StaggerContainer
-                staggerDelay={0.1}
-                className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4"
-              >
-                {STATS.map((stat) => {
-                  const Icon = statIcons[stat.icon];
-                  return (
-                    <StaggerItem key={stat.label} className="text-center">
-                      <Icon
-                        size={24}
-                        className="mx-auto mb-2 text-bp-gold"
-                        strokeWidth={1.5}
-                      />
-                      <p className="gold-lettering-soft font-serif text-2xl font-bold text-bp-gold sm:text-3xl">
-                        {stat.value}
-                      </p>
-                      <p className="mt-1 text-[10px] uppercase tracking-wider text-white/60">
-                        {stat.label}
-                      </p>
-                    </StaggerItem>
-                  );
-                })}
-              </StaggerContainer>
             </div>
           </div>
+
+          <FadeIn direction="up" delay={0.5}>
+            <div className="mt-16 border-t border-white/10 pt-12 lg:mt-20">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-bp-gold">
+                How We Partner
+              </p>
+              <PartnershipApproach variant="dark" className="mt-8" />
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -161,7 +137,7 @@ export default function AboutPage() {
           <FadeIn direction="up" delay={0.1}>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-bp-black/70">
               Let&apos;s start a conversation about your brand, your goals, and
-              how {BRAND.slogan.toLowerCase()} can drive your next chapter.
+              how {BRAND.slogan.toLowerCase()} can shape your next chapter.
             </p>
           </FadeIn>
           <FadeIn direction="up" delay={0.2}>

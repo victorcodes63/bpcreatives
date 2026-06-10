@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { FEATURED_WORK } from "@/lib/constants";
+import { CREATIVE_FOCUS } from "@/lib/constants";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/Stagger";
 
@@ -14,8 +14,6 @@ export function FeaturedWork() {
   return (
     <section id="work" className="relative overflow-hidden bg-bp-green text-white">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-bp-green/20 to-transparent" />
-      <div className="gold-orb pointer-events-none absolute -left-24 top-16 h-80 w-80 blur-3xl" />
-      <div className="gold-orb pointer-events-none absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
@@ -26,19 +24,19 @@ export function FeaturedWork() {
             </FadeIn>
             <FadeIn direction="up" delay={0.1}>
               <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl">
-                Brands We&apos;ve Helped Elevate
+                Where We Create Impact
               </h2>
             </FadeIn>
             <FadeIn direction="up" delay={0.2}>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70">
                 Campaign thinking, launch moments, storytelling, and visibility
-                designed for brands ready to be remembered.
+                for brands ready to be remembered across Nairobi and Kenya.
               </p>
             </FadeIn>
           </div>
           <FadeIn direction="up" delay={0.3}>
             <Button href="/contact" variant="outline">
-              View Our Work
+              Start a Project
             </Button>
           </FadeIn>
         </div>
@@ -47,10 +45,10 @@ export function FeaturedWork() {
           staggerDelay={0.15}
           className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {FEATURED_WORK.map((project, index) => (
+          {CREATIVE_FOCUS.map((project, index) => (
             <StaggerItem key={project.name}>
               <div
-                className="group relative aspect-[4/5] overflow-hidden border border-bp-gold/15 bg-bp-green-light shadow-xl shadow-black/10 transition-all duration-500 hover:border-bp-gold/40 hover:shadow-[0_24px_70px_rgba(180,134,50,0.18)]"
+                className="group relative aspect-[4/5] overflow-hidden border border-bp-gold/15 bg-bp-green-light shadow-xl shadow-black/10 transition-all duration-500 hover:border-bp-gold/40"
               >
                 <div
                   className="absolute inset-0 scale-100 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

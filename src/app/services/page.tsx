@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { Button } from "@/components/ui/Button";
 import { BRAND } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/metadata";
 import { SERVICES } from "@/lib/services";
 
-export const metadata: Metadata = {
-  title: `Services | ${BRAND.name}`,
+export const metadata = createPageMetadata({
+  title: "Services",
   description:
     "Explore BP Creatives' PR, brand, content, social, events, community, and reputation services in Nairobi, Kenya.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -24,7 +25,7 @@ export default function ServicesPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75">
             From strategic PR and storytelling to events and crisis readiness,
-            {BRAND.name} helps organisations in Nairobi and across East Africa
+            {BRAND.name} helps organisations in Nairobi and across Kenya
             connect, influence, and grow with clarity and craft.
           </p>
         </div>

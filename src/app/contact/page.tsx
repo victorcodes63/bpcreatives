@@ -1,26 +1,23 @@
-import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import { ContactFAQ } from "@/components/contact/ContactFAQ";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactSidebar } from "@/components/contact/ContactSidebar";
 import { Button } from "@/components/ui/Button";
+import { createPageMetadata } from "@/lib/metadata";
 import { BRAND, CONTACT, CONTACT_PROCESS } from "@/lib/constants";
 
-export const metadata: Metadata = {
-  title: `Contact | ${BRAND.name}`,
-  description: `Get in touch with ${BRAND.name}. Start a conversation about your brand, PR strategy, and communications goals. We respond within 48 hours.`,
-  openGraph: {
-    title: `Contact | ${BRAND.name}`,
-    description: `Reach ${BRAND.name} — ${BRAND.slogan}. Let's build something great together.`,
-  },
-};
+export const metadata = createPageMetadata({
+  title: "Contact",
+  description: `Get in touch with ${BRAND.name}. Start a conversation about your brand, PR strategy, and communications goals.`,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-bp-green pt-28 text-white lg:pt-32">
         <div
-          className="pointer-events-none absolute -right-24 -top-24 size-[28rem] rounded-full bg-bp-gold/5 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 size-[28rem] rounded-full bg-bp-green-light/20 blur-3xl"
           aria-hidden
         />
         <div
@@ -36,39 +33,23 @@ export default function ContactPage() {
               </p>
               <h1 className="mt-3 max-w-3xl font-serif text-3xl leading-snug sm:text-4xl lg:text-5xl">
                 Let&apos;s build something{" "}
-                <span className="gold-lettering-soft text-bp-gold">great</span>{" "}
+                <span className="text-bp-gold">great</span>{" "}
                 together
               </h1>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75">
-                Whether you&apos;re launching a brand, scaling your presence, or
-                navigating a pivotal moment — we&apos;d love to hear from you.
-                Share your vision and we&apos;ll respond within{" "}
-                {CONTACT.responseTime.toLowerCase()}.
+                Whether you are launching a brand, scaling your presence, or
+                navigating a pivotal moment, we would love to hear from you.
+                Share your vision and let&apos;s start the conversation.
               </p>
             </div>
 
             <div className="hidden lg:block">
-              <p className="gold-lettering-soft max-w-[14rem] text-right font-serif text-xl italic leading-snug text-bp-gold">
+              <p className="max-w-[14rem] text-right font-serif text-xl italic leading-snug text-bp-gold">
                 Your story.
                 <br />
                 Our obsession.
               </p>
             </div>
-          </div>
-
-          <div className="mt-14 grid gap-6 border-t border-white/10 pt-10 sm:grid-cols-3">
-            {[
-              { label: "Response time", value: CONTACT.responseTime },
-              { label: "Based in", value: BRAND.location },
-              { label: "Timezone", value: CONTACT.timezone },
-            ].map((item) => (
-              <div key={item.label}>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-bp-gold">
-                  {item.label}
-                </p>
-                <p className="mt-1.5 text-sm text-white/80">{item.value}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -89,7 +70,7 @@ export default function ContactPage() {
               Visit Us
             </p>
             <h2 className="mt-3 font-serif text-3xl text-bp-green sm:text-4xl">
-              Find us at The Piano
+              Find us at Baraza Media Lab
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-bp-black/65">
               Our team is based at {BRAND.location}. Use the map below to plan
@@ -100,7 +81,7 @@ export default function ContactPage() {
           <div className="mt-12 overflow-hidden border border-bp-green/10 bg-white shadow-2xl shadow-bp-green/10">
             <iframe
               src={CONTACT.mapEmbedUrl}
-              title={`${BRAND.name} location at The Piano`}
+              title={`${BRAND.name} location at Baraza Media Lab`}
               className="h-[28rem] w-full"
               loading="lazy"
               allowFullScreen
@@ -120,8 +101,8 @@ export default function ContactPage() {
               From first message to partnership
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-bp-black/65">
-              A clear, collaborative process — so you know exactly what to
-              expect when you reach out.
+              A clear, collaborative process so you know exactly what to expect
+              when you reach out.
             </p>
           </div>
 
@@ -160,8 +141,8 @@ export default function ContactPage() {
             Rather talk now?
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-bp-black/65">
-            Skip the form and call us directly — we&apos;re available during
-            office hours and happy to chat.
+            Skip the form and call us directly. We are available during office
+            hours and happy to chat.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button href={`tel:${BRAND.phoneTel}`}>

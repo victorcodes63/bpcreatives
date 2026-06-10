@@ -28,7 +28,7 @@ function StoryHeading({
     >
       {before}
       <span
-        className={isActive ? "gold-lettering-soft text-bp-gold" : "text-bp-black/25"}
+        className={isActive ? "text-bp-gold" : "text-bp-black/25"}
       >
         {beat.highlight}
       </span>
@@ -72,9 +72,6 @@ export function AboutStoryReveal() {
 
   return (
     <div className="relative">
-      <div className="gold-orb pointer-events-none absolute -left-24 top-20 hidden h-72 w-72 blur-3xl lg:block" />
-      <div className="gold-orb pointer-events-none absolute -right-20 bottom-20 hidden h-80 w-80 blur-3xl lg:block" />
-
       <div className="mb-10 max-w-3xl lg:mb-12">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-bp-gold">
           About Us
@@ -86,7 +83,7 @@ export function AboutStoryReveal() {
 
       <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
         <div className="relative lg:sticky lg:top-24 lg:self-start">
-          <div className="gold-glow relative overflow-hidden border border-bp-gold/20 bg-white p-3">
+          <div className="relative overflow-hidden border border-bp-green/10 bg-white p-3">
             <div className="relative aspect-[6/7] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -150,7 +147,7 @@ export function AboutStoryReveal() {
                   "group border px-4 py-3 text-left transition-all duration-500",
                   index === activeIndex
                     ? "border-bp-gold bg-bp-gold text-bp-green"
-                    : "border-bp-green/10 bg-white/70 text-bp-black/55 hover:border-bp-gold/40 hover:text-bp-green",
+                    : "border-bp-green/10 bg-white/70 text-bp-black/55 hover:border-bp-green/30 hover:text-bp-green",
                 )}
                 aria-label={`Go to: ${beat.label}`}
               >
@@ -190,7 +187,7 @@ export function AboutStoryReveal() {
                     className={cn(
                       "absolute -left-[3.05rem] top-3 hidden h-4 w-4 rounded-full border transition-colors duration-500 lg:block",
                       index === activeIndex
-                        ? "border-bp-gold bg-bp-gold shadow-[0_0_0_8px_rgba(180,134,50,0.12)]"
+                        ? "border-bp-gold bg-bp-gold"
                         : "border-bp-green/20 bg-bp-cream",
                     )}
                   />
@@ -206,7 +203,7 @@ export function AboutStoryReveal() {
                     <span
                       className={cn(
                         "h-px flex-1 transition-colors duration-500",
-                        index === activeIndex ? "bg-bp-gold/50" : "bg-bp-green/10",
+                        index === activeIndex ? "bg-bp-gold" : "bg-bp-green/10",
                       )}
                     />
                   </div>

@@ -13,7 +13,6 @@ const HIGHLIGHTS = [
 export function WhoWeAre() {
   return (
     <section className="relative overflow-hidden bg-bp-cream">
-      <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 translate-x-1/3 rounded-full bg-bp-gold/10 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] xl:grid-cols-[0.75fr_1.25fr]">
           <div className="max-w-xl">
@@ -25,7 +24,7 @@ export function WhoWeAre() {
             <FadeIn direction="up" delay={0.2}>
               <h2 className="mt-3 font-serif text-3xl text-bp-green sm:text-4xl lg:text-[3.15rem]">
                 Your Brand. Our Creative{" "}
-                <span className="gold-lettering-soft text-bp-gold">
+                <span className="text-bp-gold">
                   Obsession.
                 </span>
               </h2>
@@ -66,7 +65,7 @@ export function WhoWeAre() {
 
           <Parallax offset={30}>
             <FadeIn direction="left" delay={0.3}>
-              <div className="gold-glow relative border border-bp-gold/20 bg-white p-3 lg:-mr-8 xl:-mr-12">
+              <div className="relative border border-bp-green/10 bg-white p-3 lg:-mr-8 xl:-mr-12">
                 <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
                   src="/images/about-us-section.png"

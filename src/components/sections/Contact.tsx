@@ -7,10 +7,8 @@ import { FadeIn } from "@/components/animations/FadeIn";
 export function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden bg-bp-cream text-bp-green">
-      <div className="gold-orb pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 blur-3xl" />
       <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
         <div className="relative overflow-hidden">
-          <div className="gold-orb pointer-events-none absolute -right-28 -top-28 h-80 w-80 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div className="max-w-xl">
               <FadeIn direction="up">

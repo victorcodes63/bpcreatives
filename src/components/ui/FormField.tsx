@@ -41,7 +41,7 @@ export function FormField({
 }
 
 const inputBase =
-  "w-full border border-bp-green/15 bg-white px-4 py-3.5 text-sm text-bp-black outline-none transition-[border-color,box-shadow] placeholder:text-bp-black/35 focus:border-bp-green focus:ring-2 focus:ring-bp-gold/25 disabled:cursor-not-allowed disabled:opacity-60";
+  "w-full border border-bp-green/15 bg-white px-4 py-3.5 text-sm text-bp-black outline-none transition-[border-color,box-shadow] placeholder:text-bp-black/35 focus:border-bp-green focus:ring-2 focus:ring-bp-green/15 disabled:cursor-not-allowed disabled:opacity-60";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;

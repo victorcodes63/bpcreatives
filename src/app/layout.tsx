@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { siteMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -10,26 +10,7 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
-  title: "BP Creatives | PR & Communications Agency",
-  description:
-    "Strategy with soul. A full-service PR and communications agency in Nairobi, Kenya. We tell your story, build your legacy, and help brands connect, influence and grow.",
-  keywords: [
-    "PR agency",
-    "communications",
-    "Nairobi",
-    "Kenya",
-    "brand strategy",
-    "content creation",
-    "BP Creatives",
-  ],
-  openGraph: {
-    title: "BP Creatives | PR & Communications Agency",
-    description:
-      "A full-service PR and communications agency helping brands connect, influence and grow.",
-    type: "website",
-  },
-};
+export const metadata = siteMetadata;
 
 export default function RootLayout({
   children,

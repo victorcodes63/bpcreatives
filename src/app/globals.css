@@ -3,8 +3,8 @@
 :root {
   --bp-green: #082217;
   --bp-green-light: #2d5444;
-  --bp-gold: #b48632;
-  --bp-gold-dark: #8b6b1f;
+  --bp-gold: #e0b421;
+  --bp-gold-dark: #e0b421;
   --bp-cream: #f5f0e8;
   --bp-black: #1a1a1a;
   --background: var(--bp-cream);
@@ -17,12 +17,38 @@
   --color-foreground: var(--foreground);
   --color-bp-green: var(--bp-green);
   --color-bp-green-light: var(--bp-green-light);
-  --color-bp-gold: var(--bp-gold);
-  --color-bp-gold-dark: var(--bp-gold-dark);
+  --color-bp-gold: #e0b421;
+  --color-bp-gold-dark: #e0b421;
   --color-bp-cream: var(--bp-cream);
   --color-bp-black: var(--bp-black);
   --font-sans: var(--font-manrope), Arial, sans-serif;
   --font-serif: var(--font-georgia);
+}
+
+@layer utilities {
+  .text-bp-gold {
+    color: #e0b421;
+  }
+
+  .bg-bp-gold {
+    background-color: #e0b421;
+  }
+
+  .border-bp-gold {
+    border-color: #e0b421;
+  }
+
+  .decoration-bp-gold {
+    text-decoration-color: #e0b421;
+  }
+
+  .outline-bp-gold {
+    outline-color: #e0b421;
+  }
+
+  .ring-bp-gold {
+    --tw-ring-color: #e0b421;
+  }
 }
 
 html {
@@ -35,47 +61,13 @@ body {
   font-family: var(--font-manrope), Arial, sans-serif;
 }
 
-.gold-glow {
-  box-shadow:
-    0 24px 70px rgba(180, 134, 50, 0.16),
-    0 0 0 1px rgba(180, 134, 50, 0.16);
-}
-
-.gold-glow-strong {
-  box-shadow:
-    0 28px 90px rgba(180, 134, 50, 0.24),
-    0 0 42px rgba(180, 134, 50, 0.16);
-}
-
-.gold-orb {
-  background:
-    radial-gradient(circle, rgba(180, 134, 50, 0.34) 0%, rgba(180, 134, 50, 0.12) 38%, transparent 72%);
-}
-
-.text-bp-gold {
-  text-shadow: 0 0 18px rgba(180, 134, 50, 0.18);
-}
-
-.gold-lettering {
-  text-shadow:
-    0 0 12px rgba(180, 134, 50, 0.42),
-    0 0 34px rgba(180, 134, 50, 0.26),
-    0 0 72px rgba(180, 134, 50, 0.14);
-}
-
-.gold-lettering-soft {
-  text-shadow:
-    0 0 10px rgba(180, 134, 50, 0.28),
-    0 0 26px rgba(180, 134, 50, 0.18);
-}
-
 .font-serif {
   font-family: var(--font-georgia);
   letter-spacing: -0.025em;
 }
 
 ::selection {
-  background-color: var(--bp-gold);
+  background-color: #e0b421;
   color: var(--bp-green);
 }
 
@@ -95,6 +87,35 @@ body {
 
 .client-logo-marquee:hover {
   animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 24s linear infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 16s linear infinite;
+}
+
+.text-outline-faint {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
 }
 
 .scrollbar-hide {

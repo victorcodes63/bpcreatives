@@ -68,6 +68,6 @@ export async function submitContactForm(
   return {
     success: true,
     message:
-      "Thank you for reaching out. Our team will respond within 48 hours.",
+      "Thank you for reaching out. Our team will be in touch soon.",
   };
 }

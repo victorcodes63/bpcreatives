@@ -99,7 +99,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/75">
             Tell us where you are today and what success looks like. We will
-            respond with a clear next step—no obligation.
+            respond with a clear next step, no obligation.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button href="/contact" variant="primary">

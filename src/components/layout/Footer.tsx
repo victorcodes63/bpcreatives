@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { Button } from "@/components/ui/Button";
 import { BRAND, FOOTER_LINKS, SOCIAL_LINKS } from "@/lib/constants";
 import { SERVICES, getServiceHref } from "@/lib/services";
 
-// Custom social media icon components
-const InstagramIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
+const InstagramIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
     width={size}
     height={size}
@@ -22,7 +23,7 @@ const InstagramIcon = ({ size = 20, className = "" }: { size?: number; className
   </svg>
 );
 
-const LinkedInIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
+const LinkedInIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
     width={size}
     height={size}
@@ -40,7 +41,7 @@ const LinkedInIcon = ({ size = 20, className = "" }: { size?: number; className?
   </svg>
 );
 
-const FacebookIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
+const FacebookIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
     width={size}
     height={size}
@@ -56,7 +57,7 @@ const FacebookIcon = ({ size = 20, className = "" }: { size?: number; className?
   </svg>
 );
 
-const XIcon = ({ size = 20, className = "" }: { size?: number; className?: string }) => (
+const XIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
     width={size}
     height={size}
@@ -80,102 +81,140 @@ const socialIcons: Record<string, React.ComponentType<{ size?: number; className
   X: XIcon,
 };
 
+const featuredServices = SERVICES.slice(0, 5);
+
 export function Footer() {
   return (
-    <footer className="bg-bp-green text-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_1.15fr_0.95fr] lg:gap-0">
-          <div className="lg:pr-14">
-            <Logo size="footer" className="mb-4" />
-            <p className="max-w-xs text-sm leading-relaxed text-white/70">
-              {BRAND.slogan}. A PR &amp; creative agency built for impact — we
-              tell stories, build reputations, and drive results.
+    <footer className="border-t border-bp-gold/20 bg-bp-green text-white">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8 lg:py-16">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <div className="max-w-md shrink-0">
+            <Logo size="footer" className="mb-5" />
+            <p className="font-serif text-lg italic leading-snug text-bp-gold">
+              {BRAND.slogan}
             </p>
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
+              A full service marketing, PR and communication agency in Nairobi.
+              We tell stories, build reputations, and help brands grow with
+              influence.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <Button href="/contact" variant="primary" className="text-[10px]">
+                Let&apos;s Talk
+              </Button>
+              <div className="flex gap-3">
+                {SOCIAL_LINKS.map((social) => {
+                  const Icon = socialIcons[social.label];
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex size-9 items-center justify-center border border-white/15 text-white/60 transition-colors hover:border-bp-gold hover:text-bp-gold"
+                      aria-label={social.label}
+                    >
+                      <Icon size={16} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
-          <div className="border-white/10 lg:border-l lg:px-10">
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-bp-gold">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {FOOTER_LINKS.map((link) => (
-                <li key={link.href}>
+          <div className="grid flex-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+            <div>
+              <h3 className="mb-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-bp-gold">
+                Quick Links
+              </h3>
+              <ul className="space-y-2.5">
+                {FOOTER_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/70 transition-colors hover:text-bp-gold"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-bp-gold">
+                Services
+              </h3>
+              <ul className="space-y-2.5">
+                {featuredServices.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={getServiceHref(service.slug)}
+                      className="text-sm text-white/70 transition-colors hover:text-bp-gold"
+                    >
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+                <li>
                   <Link
-                    href={link.href}
-                    className="text-sm text-white/70 transition-colors hover:text-bp-gold"
+                    href="/services"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-bp-gold transition-colors hover:text-white"
                   >
-                    {link.label}
+                    All services
+                    <ArrowUpRight size={13} strokeWidth={2} />
                   </Link>
                 </li>
-              ))}
-            </ul>
-          </div>
+              </ul>
+            </div>
 
-          <div className="border-white/10 lg:border-l lg:px-10">
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-bp-gold">
-              Services
-            </h3>
-            <ul className="space-y-2">
-              {SERVICES.map((service) => (
-                <li key={service.slug}>
-                  <Link
-                    href={getServiceHref(service.slug)}
-                    className="text-sm text-white/70 transition-colors hover:text-bp-gold"
-                  >
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="border-white/10 lg:border-l lg:pl-10">
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-bp-gold">
-              Let&apos;s Connect
-            </h3>
-            <ul className="space-y-3 text-sm text-white/70">
-              <li>
-                <a
-                  href={`tel:${BRAND.phoneTel}`}
-                  className="transition-colors hover:text-bp-gold"
-                >
-                  {BRAND.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${BRAND.email}`}
-                  className="transition-colors hover:text-bp-gold"
-                >
-                  {BRAND.email}
-                </a>
-              </li>
-              <li>{BRAND.location}</li>
-            </ul>
-            <div className="mt-6 flex gap-4">
-              {SOCIAL_LINKS.map((social) => {
-                const Icon = socialIcons[social.label];
-                return (
+            <div className="sm:col-span-2 lg:col-span-1">
+              <h3 className="mb-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-bp-gold">
+                Get In Touch
+              </h3>
+              <ul className="space-y-4">
+                <li>
                   <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/60 transition-colors hover:text-bp-gold"
-                    aria-label={social.label}
+                    href={`tel:${BRAND.phoneTel}`}
+                    className="group flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-bp-gold"
                   >
-                    <Icon size={20} className="transition-transform hover:scale-110" />
+                    <Phone
+                      size={16}
+                      className="mt-0.5 shrink-0 text-bp-gold"
+                      strokeWidth={1.5}
+                    />
+                    {BRAND.phone}
                   </a>
-                );
-              })}
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${BRAND.email}`}
+                    className="group flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-bp-gold"
+                  >
+                    <Mail
+                      size={16}
+                      className="mt-0.5 shrink-0 text-bp-gold"
+                      strokeWidth={1.5}
+                    />
+                    {BRAND.email}
+                  </a>
+                </li>
+                <li className="flex items-start gap-3 text-sm leading-relaxed text-white/70">
+                  <MapPin
+                    size={16}
+                    className="mt-0.5 shrink-0 text-bp-gold"
+                    strokeWidth={1.5}
+                  />
+                  {BRAND.location}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-xs text-white/45 sm:flex-row">
           <p>
-            &copy; {new Date().getFullYear()} {BRAND.name}. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.
           </p>
           <Link href="#" className="transition-colors hover:text-bp-gold">
             Privacy Policy

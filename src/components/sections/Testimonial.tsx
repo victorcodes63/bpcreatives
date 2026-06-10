@@ -6,7 +6,7 @@ export function Testimonial() {
   return (
     <section className="bg-bp-cream">
       <div className="mx-auto max-w-7xl px-6 pb-20 lg:px-8 lg:pb-28">
-        <div className="gold-glow grid items-center gap-12 border border-bp-gold/15 bg-white/80 p-8 lg:grid-cols-[1.4fr_1fr] lg:p-12">
+        <div className="grid items-center gap-12 border border-bp-gold/15 bg-white/80 p-8 lg:grid-cols-[1.4fr_1fr] lg:p-12">
           <FadeIn direction="up">
             <Quote
               size={56}

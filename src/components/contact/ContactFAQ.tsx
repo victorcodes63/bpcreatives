@@ -19,13 +19,13 @@ export function ContactFAQ() {
             <h2 className="mt-3 font-serif text-3xl leading-snug sm:text-4xl">
               Questions before
               <br />
-              <span className="gold-lettering-soft text-bp-gold">
+              <span className="text-bp-gold">
                 you reach out?
               </span>
             </h2>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
-              A few things clients often ask. If yours isn&apos;t here, send us
-              a message — we&apos;re happy to help.
+              A few things people often ask. If yours is not here, send us a
+              message. We are happy to help.
             </p>
           </div>
 

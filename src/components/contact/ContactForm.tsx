@@ -15,8 +15,8 @@ const initialState: ContactFormState = {};
 const TIMELINE_OPTIONS = [
   { value: "", label: "Select a timeline" },
   { value: "asap", label: "As soon as possible" },
-  { value: "1-3-months", label: "1 – 3 months" },
-  { value: "3-6-months", label: "3 – 6 months" },
+  { value: "1-3-months", label: "1 to 3 months" },
+  { value: "3-6-months", label: "3 to 6 months" },
   { value: "exploring", label: "Just exploring options" },
 ] as const;
 
@@ -42,7 +42,7 @@ export function ContactForm() {
         role="status"
         aria-live="polite"
       >
-        <div className="mb-6 flex size-16 items-center justify-center rounded-full bg-bp-gold/15">
+        <div className="mb-6 flex size-16 items-center justify-center rounded-full border border-bp-gold/30 bg-bp-cream">
           <CheckCircle2
             size={32}
             className="text-bp-green"
@@ -189,7 +189,7 @@ export function ContactForm() {
           type="submit"
           disabled={pending}
           className={cn(
-            "inline-flex shrink-0 items-center justify-center gap-2.5 border border-bp-gold-dark bg-bp-gold px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-bp-green transition-colors hover:bg-bp-gold/90 disabled:cursor-not-allowed disabled:opacity-70",
+            "inline-flex shrink-0 items-center justify-center gap-2.5 border border-bp-gold bg-bp-gold px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-bp-green transition-colors hover:bg-bp-gold/95 disabled:cursor-not-allowed disabled:opacity-70",
           )}
         >
           {pending ? (

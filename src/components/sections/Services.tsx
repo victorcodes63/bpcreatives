@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Fragment,
   useLayoutEffect,
@@ -58,10 +59,12 @@ const DRAG_TRANSITION = {
 };
 
 export function Services() {
+  const router = useRouter();
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const dragState = useRef({ moved: false });
+  const pointerStart = useRef<{ x: number; y: number } | null>(null);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
   const [isDragging, setIsDragging] = useState(false);
 
@@ -114,7 +117,32 @@ export function Services() {
     });
   }
 
-  function handleLinkClick(event: PointerEvent<HTMLAnchorElement>) {
+  function handleServicePointerDown(event: PointerEvent<HTMLAnchorElement>) {
+    pointerStart.current = { x: event.clientX, y: event.clientY };
+  }
+
+  function handleServicePointerUp(
+    event: PointerEvent<HTMLAnchorElement>,
+    href: string,
+  ) {
+    if (!pointerStart.current) return;
+
+    const deltaX = Math.abs(event.clientX - pointerStart.current.x);
+    const deltaY = Math.abs(event.clientY - pointerStart.current.y);
+    const isClick =
+      deltaX < 6 &&
+      deltaY < 6 &&
+      !dragState.current.moved;
+
+    pointerStart.current = null;
+
+    if (isClick) {
+      event.preventDefault();
+      router.push(href);
+    }
+  }
+
+  function handleServiceClick(event: PointerEvent<HTMLAnchorElement>) {
     if (dragState.current.moved) {
       event.preventDefault();
     }
@@ -123,7 +151,6 @@ export function Services() {
   return (
     <section id="services" className="relative overflow-hidden bg-bp-cream">
       <div className="pointer-events-none absolute left-0 top-24 h-px w-full bg-gradient-to-r from-transparent via-bp-green/10 to-transparent" />
-      <div className="gold-orb pointer-events-none absolute right-0 top-24 h-96 w-96 translate-x-1/3 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6 pt-20 lg:px-8 lg:pt-28">
         <div className="mx-auto max-w-3xl text-center">
           <FadeIn direction="up">
@@ -139,7 +166,7 @@ export function Services() {
           <FadeIn direction="up" delay={0.2}>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-bp-black/70">
               A focused mix of communications, creative direction, and
-              reputation work — shaped around the moments that matter most for
+              reputation work, shaped around the moments that matter most for
               your brand.
             </p>
           </FadeIn>
@@ -197,20 +224,28 @@ export function Services() {
             }}
             onDragEnd={() => {
               setIsDragging(false);
+              window.setTimeout(() => {
+                dragState.current.moved = false;
+              }, 0);
             }}
             className="flex w-max touch-none select-none"
           >
             <StaggerContainer staggerDelay={0.1} className="flex items-stretch">
-              {SERVICES.map((service, index) => (
+              {SERVICES.map((service, index) => {
+                const href = getServiceHref(service.slug);
+
+                return (
                 <Fragment key={service.slug}>
                   <StaggerItem className="w-[13.5rem] flex-none sm:w-[14.5rem] lg:w-[15.5rem]">
                     <Link
-                      href={getServiceHref(service.slug)}
+                      href={href}
                       draggable={false}
-                      onClick={handleLinkClick}
+                      onPointerDown={handleServicePointerDown}
+                      onPointerUp={(event) => handleServicePointerUp(event, href)}
+                      onClick={handleServiceClick}
                       className="group flex min-h-[18rem] flex-col items-center justify-center px-3 py-6 text-center"
                     >
-                      <span className="mb-5 flex size-14 items-center justify-center rounded-full border border-bp-gold/20 bg-bp-green text-bp-gold shadow-[0_0_34px_rgba(180,134,50,0.18)] transition-all duration-300 group-hover:border-bp-gold group-hover:bg-bp-gold group-hover:text-bp-green group-hover:shadow-[0_0_42px_rgba(180,134,50,0.28)]">
+                      <span className="mb-5 flex size-14 items-center justify-center rounded-full bg-bp-green text-[#e0b421] transition-all duration-300 group-hover:bg-[#e0b421] group-hover:text-bp-green">
                         <ServiceIconComponent icon={service.icon} size={24} />
                       </span>
                       <h3 className="min-h-[2.75rem] text-xs font-bold uppercase leading-snug tracking-[0.08em] text-bp-green transition-colors group-hover:text-bp-gold sm:text-sm">
@@ -228,7 +263,8 @@ export function Services() {
                     />
                   ) : null}
                 </Fragment>
-              ))}
+                );
+              })}
               <div aria-hidden className="w-6 flex-none lg:w-8" />
             </StaggerContainer>
           </motion.div>

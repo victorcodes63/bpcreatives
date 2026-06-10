@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServiceDetail } from "@/components/services/ServiceDetail";
 import { BRAND } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/metadata";
 import {
   getAllServiceSlugs,
   getServiceBySlug,
@@ -25,15 +26,11 @@ export async function generateMetadata({
     return { title: `Service Not Found | ${BRAND.name}` };
   }
 
-  return {
-    title: `${service.title} | ${BRAND.name}`,
+  return createPageMetadata({
+    title: service.title,
     description: service.metaDescription,
-    openGraph: {
-      title: `${service.title} | ${BRAND.name}`,
-      description: service.metaDescription,
-      type: "website",
-    },
-  };
+    path: `/services/${slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: PageProps) {

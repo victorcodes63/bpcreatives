@@ -42,9 +42,8 @@ export function ContactSidebar() {
           Prefer a direct line?
         </h2>
         <p className="mt-4 text-sm leading-relaxed text-bp-black/65">
-          Reach out by email or phone — we respond to every inquiry within{" "}
-          <span className="font-medium text-bp-green">{CONTACT.responseTime}</span>
-          .
+          Reach out by email or phone. Every inquiry receives our full
+          attention.
         </p>
       </div>
 
@@ -112,7 +111,7 @@ export function ContactSidebar() {
           you tell yours.&rdquo;
         </p>
         <footer className="mt-3 text-xs uppercase tracking-wider text-bp-black/50">
-          — {BRAND.name}
+          {BRAND.name}
         </footer>
       </blockquote>
     </aside>
