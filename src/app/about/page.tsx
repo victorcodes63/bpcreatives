@@ -75,7 +75,7 @@ export default function AboutPage() {
               <FadeIn direction="right" delay={0.2}>
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
-                    src="/images/about-story.jpg"
+                    src="/images/about-story-v2.jpg"
                     alt="BP Creatives creative lounge in Nairobi with green walls, warm lighting, and team in motion"
                     fill
                     className="object-cover"
