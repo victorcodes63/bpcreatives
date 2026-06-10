@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarDays, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarDays, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { LogoMark } from "@/components/ui/Logo";
 import { BRAND, EVENTS } from "@/lib/constants";
@@ -37,7 +37,7 @@ const EVENT_DETAILS = [
   },
   {
     number: "03",
-    icon: Sparkles,
+    icon: MessageCircle,
     title: "The Experience",
     detail: "An evening of conversation, connection, and creative inspiration",
     note: "Curated for the people shaping how brands are seen and remembered.",
