@@ -15,6 +15,7 @@ import { SERVICES, getServiceHref } from "@/lib/services";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/Stagger";
 import { DragCursorArea } from "@/components/ui/DragCursor";
+import { cn } from "@/lib/utils";
 
 const serviceLineupCopy: Record<
   (typeof SERVICES)[number]["slug"],
@@ -67,6 +68,7 @@ export function Services() {
   const pointerStart = useRef<{ x: number; y: number } | null>(null);
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [fitsViewport, setFitsViewport] = useState(false);
 
   useLayoutEffect(() => {
     const viewport = viewportRef.current;
@@ -74,7 +76,25 @@ export function Services() {
     if (!viewport || !track) return;
 
     const updateConstraints = () => {
-      const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      const viewportWidth = viewport.clientWidth;
+      const trackWidth = track.scrollWidth;
+      const maxOffset = Math.max(0, trackWidth - viewportWidth);
+      const fits = maxOffset === 0;
+
+      setFitsViewport(fits);
+
+      if (fits) {
+        const centerX = (viewportWidth - trackWidth) / 2;
+        const centeredConstraints = { left: centerX, right: centerX };
+        setDragConstraints(centeredConstraints);
+        animate(x, centerX, {
+          type: "spring",
+          stiffness: 420,
+          damping: 32,
+        });
+        return;
+      }
+
       const nextConstraints = { left: -maxOffset, right: 0 };
       setDragConstraints(nextConstraints);
 
@@ -172,43 +192,50 @@ export function Services() {
           </FadeIn>
         </div>
 
-        <FadeIn direction="up" delay={0.3} className="mt-12">
-          <div className="mb-5 flex items-center justify-between gap-4">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-bp-black/45">
-              Drag to explore services
-            </p>
-            <div className="hidden items-center gap-2 sm:flex">
-              <button
-                type="button"
-                onClick={() => scrollCarousel("previous")}
-                className="flex size-10 items-center justify-center border border-bp-green/20 text-bp-green transition-colors hover:border-bp-gold hover:text-bp-gold"
-                aria-label="Previous services"
-              >
-                ←
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollCarousel("next")}
-                className="flex size-10 items-center justify-center border border-bp-green/20 text-bp-green transition-colors hover:border-bp-gold hover:text-bp-gold"
-                aria-label="Next services"
-              >
-                →
-              </button>
+        {!fitsViewport ? (
+          <FadeIn direction="up" delay={0.3} className="mt-12">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-bp-black/45">
+                Drag to explore services
+              </p>
+              <div className="hidden items-center gap-2 sm:flex">
+                <button
+                  type="button"
+                  onClick={() => scrollCarousel("previous")}
+                  className="flex size-10 items-center justify-center border border-bp-green/20 text-bp-green transition-colors hover:border-bp-gold hover:text-bp-gold"
+                  aria-label="Previous services"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollCarousel("next")}
+                  className="flex size-10 items-center justify-center border border-bp-green/20 text-bp-green transition-colors hover:border-bp-gold hover:text-bp-gold"
+                  aria-label="Next services"
+                >
+                  →
+                </button>
+              </div>
             </div>
-          </div>
-        </FadeIn>
+          </FadeIn>
+        ) : (
+          <div className="mt-12" aria-hidden />
+        )}
       </div>
 
       <div className="pb-20 lg:pb-28">
         <DragCursorArea
           ref={viewportRef}
           isDragging={isDragging}
-          className="overflow-hidden pb-4 pl-6 lg:pl-8"
+          className={cn(
+            "overflow-hidden pb-4",
+            fitsViewport ? "px-6 lg:px-8" : "pl-6 lg:pl-8",
+          )}
         >
           <motion.div
             ref={trackRef}
             style={{ x }}
-            drag="x"
+            drag={fitsViewport ? false : "x"}
             dragConstraints={dragConstraints}
             dragElastic={0.16}
             dragMomentum
@@ -265,7 +292,9 @@ export function Services() {
                 </Fragment>
                 );
               })}
-              <div aria-hidden className="w-6 flex-none lg:w-8" />
+              {!fitsViewport ? (
+                <div aria-hidden className="w-6 flex-none lg:w-8" />
+              ) : null}
             </StaggerContainer>
           </motion.div>
         </DragCursorArea>
