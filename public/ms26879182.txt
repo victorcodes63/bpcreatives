@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "bpcreatives.africa",
+  "Id": "17546839-a64f-4e0e-8e35-2615905c7982"
+}
