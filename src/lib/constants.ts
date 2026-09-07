@@ -2,7 +2,7 @@ export const BRAND = {
   name: "BP Creatives",
   tagline: "PR & Communications",
   slogan: "Strategy with soul",
-  email: "hello@bpcreatives.co.ke",
+  email: "hello@bpcreatives.africa",
   phone: "0112 836 147",
   phoneTel: "+254112836147",
   location: "Baraza Media Lab, Riverside, Nairobi, Kenya",
@@ -10,7 +10,7 @@ export const BRAND = {
 } as const;
 
 export const SITE = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bpcreatives.co.ke",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://bpcreatives.africa",
 } as const;
 
 export const CONTACT = {
